@@ -17,17 +17,24 @@ while again:
     x = random.randint(0, 5)
     if x >= 0 and x <= 2:
         print("Player 1 will play the first move\nPlayer 1 : X\nPlayer 2 : O")
+        pt=1
     else:
         print("Player 2 will play the first move\nPlayer 2 : O\nPlayer 1 : X")
-
+        pt=2
         printboard()
 
-        res=play()
+
 
 
 
 def play():
-    w
+    for num in ls:
+        if type(ls[num])==int:
+            cont=True
+    if pt=1:
+        a='X'
+        b='O'
+
     holder = input(f"Enter the position to place {}")
 
 
