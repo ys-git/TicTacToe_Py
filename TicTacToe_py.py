@@ -6,6 +6,8 @@ p2=input("Enter the name of Player 1:")
 
 
 def printboard():
-    print(f"{ls[0]}  |  {ls[1]} |  {ls[2]} \n{ls[3]}  |  {ls[4]} |  {ls[5]}\n{ls[6]}  |  {ls[7]} |  {ls[8yield ]} ")
+    print(f"{ls[0]}  |  {ls[1]} |  {ls[2]} \n------------\n"
+          f"{ls[3]}  |  {ls[4]} |  {ls[5]} \n------------\n"
+          f"{ls[6]}  |  {ls[7]} |  {ls[8]} ")
 
 printboard()
