@@ -101,7 +101,13 @@ def play():
     while chk() == True:
         holder = input(f"Enter the position to place {t}")
         holder=int(holder)-1
-        ls[holder] = t
+
+        if ls[holder]=='X' or 'O':
+            print("Enter a valid Position")
+        else:
+            ls[holder] = t
+
+
         if winchk()=='X' and first=='p1':
             print("Won by Player 1 !!!")
             cont=False
