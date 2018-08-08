@@ -17,6 +17,7 @@ def printboard():
           f"{ls[3]}  |  {ls[4]} |  {ls[5]} \n------------\n"
           f"{ls[6]}  |  {ls[7]} |  {ls[8]} ")
 
+
 def winchk():
 
 
