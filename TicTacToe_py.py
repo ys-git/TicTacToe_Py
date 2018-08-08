@@ -100,38 +100,41 @@ def play():
     t = 'X'
     while chk() == True:
         holder = input(f"Enter the position to place {t}")
-        holder=int(holder)-1
-
-        if type(ls[holder])!=int:
-            print("Enter a valid Position")
+        holder = int(holder) - 1
+        if holder>=0 and holder<=9:
+            if type(ls[holder]) != int:
+                print("Position already occupied")
+            else:
+                ls[holder] = t
         else:
-            ls[holder] = t
+            print("Please enter a valid Position")
 
 
         if winchk()=='X' and first=='p1':
             print("Won by Player 1 !!!")
             cont=False
+            printboard()
             break
         elif winchk()=='X' and first=='p2':
             print("Won by Player 2 !!!")
             cont=False
+            printboard()
             break
         if winchk()=='O' and first=='p1':
             print("Won by Player 1 !!!")
             cont=False
+            printboard()
             break
         elif winchk()=='O' and first=='p2':
             print("Won by Player 2 !!!")
             cont=False
+            printboard()
             break
         if t == 'X':
             t = 'O'
         elif t == 'O':
             t = 'X'
         printboard()
-
-
-
 
 
 while again=='y':
@@ -148,6 +151,10 @@ while again=='y':
     again = input("Enter y to play again, n to Quit")
     if again=='y':
         ls = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    elif again=='n':
+        break
+    else:
+        print("Enter a vaild response")
 
 
 
