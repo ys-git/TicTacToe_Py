@@ -7,8 +7,7 @@ ls=[1, 2, 3, 4, 5, 6, 7, 8, 9]
 res=0
 a='A'
 b='A'
-#cont=True
-again=True
+again='y'
 p1=input("Enter the name of Player 1:")
 p2=input("Enter the name of Player 1:")
 
@@ -18,30 +17,8 @@ def printboard():
           f"{ls[3]}  |  {ls[4]} |  {ls[5]} \n------------\n"
           f"{ls[6]}  |  {ls[7]} |  {ls[8]} ")
 
-def chk():
-    cont=False
-    for num in ls:
-        if type(num)==int:
-            cont=True
-    if cont == False:
-            print("Game Over!!")
-
-    return cont
-
-def play():
-    t = 'X'
-    while chk() == True:
-        holder = input(f"Enter the position to place {t}")
-        holder=int(holder-1)
-        ls[holder] = t
-        if t == 'X':
-            t = 'O'
-        elif t == 'O':
-            t = 'X'
-        printboard()
-
 def winchk():
-    win='None'
+
 
     if ls[0]==ls[1]==ls[2]=='X':
         win='X'
@@ -102,18 +79,56 @@ def winchk():
         win='X'
     elif ls[6]==ls[4]==ls[2]=='O':
         win = 'O'
+    return win
+
+def chk():
+    for num in ls:
+        if type(num)==int:
+            cont=True
+    if cont == False:
+        print("Game Over!!\n")
+        if win=='None':
+            print("No one Won")
+
+    return cont
+
+
+def play():
+    t = 'X'
+    while chk() == True:
+        holder = input(f"Enter the position to place {t}")
+        holder=int(holder-1)
+        ls[holder] = t
+        if winchk()=='X':
+            print("")
+            cont=False
+            break
+        elif winchk()=='O':
+            print("")
+            cont=False
+            break
+        if t == 'X':
+            t = 'O'
+        elif t == 'O':
+            t = 'X'
+        printboard()
 
 
 
 
-x = random.randint(0, 5)
-if x >= 0 and x <= 2:
-    print("Player 1 will play the first move\nPlayer 1 : X\nPlayer 2 : O")
 
-else:
-    print("Player 2 will play the first move\nPlayer 2 : X\nPlayer 1 : O")
-printboard()
-play()
+while again=='y':
+    win = 'None'
+    cont=False
+    x = random.randint(0, 5)
+    if x >= 0 and x <= 2:
+        print("Player 1 will play the first move\nPlayer 1 : X\nPlayer 2 : O")
+
+    else:
+        print("Player 2 will play the first move\nPlayer 2 : X\nPlayer 1 : O")
+    printboard()
+    play()
+    again = input("Enter y to play again, n to Quit")
 
 
 
