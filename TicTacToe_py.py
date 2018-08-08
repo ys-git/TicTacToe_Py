@@ -8,6 +8,8 @@ res=0
 a='A'
 b='A'
 again='y'
+first='None'
+win='None'
 p1=input("Enter the name of Player 1:")
 p2=input("Enter the name of Player 1:")
 
@@ -82,6 +84,7 @@ def winchk():
     return win
 
 def chk():
+    cont=False
     for num in ls:
         if type(num)==int:
             cont=True
@@ -99,12 +102,20 @@ def play():
         holder = input(f"Enter the position to place {t}")
         holder=int(holder)-1
         ls[holder] = t
-        if winchk()=='X':
-            print("Won by X")
+        if winchk()=='X' and first=='p1':
+            print("Won by Player 1 !!!")
             cont=False
             break
-        elif winchk()=='O':
-            print("Won by O")
+        elif winchk()=='X' and first=='p2':
+            print("Won by Player 2 !!!")
+            cont=False
+            break
+        if winchk()=='O' and first=='p1':
+            print("Won by Player 1 !!!")
+            cont=False
+            break
+        elif winchk()=='O' and first=='p2':
+            print("Won by Player 2 !!!")
             cont=False
             break
         if t == 'X':
@@ -118,17 +129,20 @@ def play():
 
 
 while again=='y':
-
-    cont=False
     x = random.randint(0, 5)
     if x >= 0 and x <= 2:
         print("Player 1 will play the first move\nPlayer 1 : X\nPlayer 2 : O")
+        first='p1'
 
     else:
         print("Player 2 will play the first move\nPlayer 2 : X\nPlayer 1 : O")
+        first='p2'
     printboard()
     play()
     again = input("Enter y to play again, n to Quit")
+    if again=='y':
+        ls = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 
 
