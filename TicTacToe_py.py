@@ -13,14 +13,13 @@ p2=input("Enter the name of Player 1:")
 
 
 def printboard():
-    print(f"{ls[0]}  |  {ls[1]} |  {ls[2]} \n------------\n"
+    print(f"\n{ls[0]}  |  {ls[1]} |  {ls[2]} \n------------\n"
           f"{ls[3]}  |  {ls[4]} |  {ls[5]} \n------------\n"
-          f"{ls[6]}  |  {ls[7]} |  {ls[8]} ")
+          f"{ls[6]}  |  {ls[7]} |  {ls[8]} \n")
 
 
 def winchk():
-
-
+    win = 'None'
     if ls[0]==ls[1]==ls[2]=='X':
         win='X'
     elif ls[0]==ls[1]==ls[2]=='O':
@@ -98,14 +97,14 @@ def play():
     t = 'X'
     while chk() == True:
         holder = input(f"Enter the position to place {t}")
-        holder=int(holder-1)
+        holder=int(holder)-1
         ls[holder] = t
         if winchk()=='X':
-            print("")
+            print("Won by X")
             cont=False
             break
         elif winchk()=='O':
-            print("")
+            print("Won by O")
             cont=False
             break
         if t == 'X':
@@ -119,7 +118,7 @@ def play():
 
 
 while again=='y':
-    win = 'None'
+
     cont=False
     x = random.randint(0, 5)
     if x >= 0 and x <= 2:
