@@ -102,7 +102,7 @@ def play():
         holder = input(f"Enter the position to place {t}")
         holder=int(holder)-1
 
-        if ls[holder]=='X' or 'O':
+        if type(ls[holder])!=int:
             print("Enter a valid Position")
         else:
             ls[holder] = t
